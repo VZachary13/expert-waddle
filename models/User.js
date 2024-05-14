@@ -18,7 +18,7 @@ friends: [
 },
 {
     toJSON: {
-        getters: true,
+        virtuals: true,
     }
 }
 )
