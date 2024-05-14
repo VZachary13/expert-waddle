@@ -15,7 +15,13 @@ friends: [
       ref: 'User',
     },
   ],
-})
+},
+{
+    toJSON: {
+        getters: true,
+    }
+}
+)
 
 const User = mongoose.model('User', userSchema);
 
