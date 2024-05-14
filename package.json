@@ -1,0 +1,27 @@
+{
+  "name": "social-network-api",
+  "version": "1.0.0",
+  "description": "backend for social network app",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VZachary13/expert-waddle.git"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^8.0.0"
+  },
+  "keywords": [
+    "bingus"
+  ],
+  "author": "VZ13",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VZachary13/expert-waddle/issues"
+  },
+  "homepage": "https://github.com/VZachary13/expert-waddle#readme"
+}
