@@ -20,7 +20,19 @@ const reactionSchema = new Schema(
             type: Date,
             default: Date.now
         }
+    },
+    {
+        toJSON: {
+            virtuals: true
+        },
+        id: false
     }
 )
+
+reactionSchema.virtual('formattedCreatedAt').get(function(){
+    return this.createdAt.toLocaleString();
+})
+
+reactionSchema.set('_id', false)
 
 module.exports = reactionSchema;

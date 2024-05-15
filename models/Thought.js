@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
+const {model,Schema} = require('mongoose');
 const reactionSchema = require('./Reaction');
 
-const thoughtSchema = new mongoose.Schema(
+const thoughtSchema = new Schema(
     {
         thoughtText: {
             type: String,
@@ -26,13 +26,18 @@ const thoughtSchema = new mongoose.Schema(
         toObject: {
           virtuals: true,
         },
+        id: false
     },
 );
 
 thoughtSchema.virtual('reactionCount').get(function () {
     return this.reactions.length;
 });
+thoughtSchema.virtual('formattedCreatedAt').get(function(){
+    return this.createdAt.toLocaleString();
+})
 
-const Thought = mongoose.model('thought', thoughtSchema);
+
+const Thought = model('thought', thoughtSchema);
 
 module.exports = Thought

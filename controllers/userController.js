@@ -70,6 +70,7 @@ module.exports = {
             await Thought.deleteMany({ username: user.username })
 
             await User.findByIdAndDelete(userId)
+            return res.status(200).json({ message: 'User deleted Successfully' })
         } catch (err) {
             console.log(err);
             return res.status(500).json(err)
