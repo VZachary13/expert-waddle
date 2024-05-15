@@ -7,24 +7,31 @@ const thoughtSchema = new mongoose.Schema(
             type: String,
             required: true,
             minlength: 1,
-            maxlength: 280
+            maxlength: 280,
         },
         createdAt: {
             type: Date,
-            default: Date.now
+            default: Date.now,
         },
         username: {
             type: String,
-            required: true
+            required: true,
         },
-        reactions: [reactionSchema]
+        reactions: [reactionSchema],
     },
     {
         toJSON: {
-            virtuals: true
-        }
-    }
+            virtuals: true,
+        },
+        toObject: {
+          virtuals: true,
+        },
+    },
 );
+
+thoughtSchema.virtual('reactionCount').get(function () {
+    return this.reactions.length;
+});
 
 const Thought = mongoose.model('thought', thoughtSchema);
 
