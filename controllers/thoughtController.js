@@ -86,7 +86,7 @@ module.exports = {
                 return res.status(404).json({ message: 'Thought deleted but no user found with this id' })
             }
 
-            res.status(200).json({ message: 'Thought deleted successfully' }, {user})
+            res.status(200).json({ message: 'Thought deleted successfully', user})
 
         } catch (err) {
             console.log(err);
